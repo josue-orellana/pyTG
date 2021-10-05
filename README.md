@@ -10,6 +10,8 @@ The code and examples supplement our publication:
 
 Klein, N., Orellana, J., Brincat, S., Miller, E. K. and Kass, R. E. (2019). “Torus Graphs for Multivariate Phase Coupling Analysis”, The Annals of Applied Statistics. 
 
+Matlab code is published at https://github.com/natalieklein/torus-graphs
+
 # COPYRIGHT
 
 @ 2021 Natalie Klein    natalie.elizabeth.klein@gmail.com
