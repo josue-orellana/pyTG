@@ -1,0 +1,12 @@
+Torus Graphs Python documentation
+==============================================
+
+.. toctree::
+   :hidden:
+
+   results
+   utilities
+
+.. automodule:: funsTG
+   :members: torusGraphs
+

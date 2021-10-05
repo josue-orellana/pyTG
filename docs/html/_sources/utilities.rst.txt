@@ -1,0 +1,15 @@
+Utilities
+=========
+
+.. autofunction:: funsTG::sampleTG
+
+.. autofunction:: funsTG::compNodePairsNodes
+
+.. autofunction:: funsTG::phaseLockingValue
+
+.. autofunction:: funsTG::wrapRadAngleToPi
+
+.. autofunction:: funsTG::phiParamGroupsToMats
+
+.. autofunction:: funsTG::phiToParamGroups
+

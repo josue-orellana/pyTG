@@ -1,0 +1,442 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Results" href="results.html" />
+
+    <meta name="generator" content="sphinx-4.2.0, furo 2021.09.22"/>
+        <title>Utilities - TG Python doc</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=150e365fa939648e89c22f6d7d13c72a1657915a" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=16fb25fabf47304eee183a5e9af80b1ba98259b1" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">TG Python doc</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">TG Python doc</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Utilities</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="utilities">
+<h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="funsTG.sampleTG">
+<span class="sig-prename descclassname"><span class="pre">funsTG.</span></span><span class="sig-name descname"><span class="pre">sampleTG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numSamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodePairs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(True,</span> <span class="pre">True,</span> <span class="pre">True)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">burnIn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nThin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#funsTG.sampleTG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibbs sampler, generates samples from a torus graph model.</p>
+<dl>
+<dt>Args:</dt><dd><p>phi, selMode, and nodePairs are described in <a class="reference internal" href="index.html#funsTG.torusGraphs" title="funsTG.torusGraphs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">funsTG.torusGraphs()</span></code></a>.</p>
+<dl class="simple">
+<dt>numSamp: dictionary of ints with number properties.</dt><dd><ul class="simple">
+<li><p>nodes: number of electrode nodes (dimensionality).</p></li>
+<li><p>trials: number of repeated observations (samples).</p></li>
+</ul>
+</dd>
+<dt>burnIn: positive int</dt><dd><p>Number of samples to ignore at the beginning of the chain.</p>
+</dd>
+<dt>nThin: positive int, greater than 1</dt><dd><p>Only every nThin-th sample is kept to obtain uncorrelated samples.</p>
+</dd>
+</dl>
+</dd>
+<dt>Outputs: </dt><dd><dl class="simple">
+<dt>S<span class="classifier">numpy array (numSamp[‘nodes’], numSamp[‘trials’] (repeated observations) ).</span></dt><dd><p>Angle vector of repeated observations.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numSamp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'trials'</span><span class="p">:</span> <span class="mi">1000</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nodePairs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newPhi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span> <span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xsampled</span> <span class="o">=</span> <span class="n">sampleTG</span><span class="p">(</span><span class="n">numSamp</span><span class="p">,</span> <span class="n">newPhi</span><span class="p">,</span> <span class="n">nodePairs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Xsampled</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">Xsampled</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="s1">'ko'</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'X1'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'X2'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numSamp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'trials'</span><span class="p">:</span> <span class="mi">1000</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nodePairs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newPhi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span> <span class="n">kap</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span> <span class="n">kap</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xsampled</span> <span class="o">=</span> <span class="n">sampleTG</span><span class="p">(</span><span class="n">numSamp</span><span class="p">,</span> <span class="n">newPhi</span><span class="p">,</span> <span class="n">nodePairs</span><span class="p">,</span> <span class="n">selMode</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">XsampledDf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Xsampled</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'X1'</span><span class="p">,</span> <span class="s1">'X2'</span><span class="p">,</span> <span class="s1">'X3'</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p3</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">XsampledDf</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="funsTG.compNodePairsNodes">
+<span class="sig-prename descclassname"><span class="pre">funsTG.</span></span><span class="sig-name descname"><span class="pre">compNodePairsNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numNodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#funsTG.compNodePairsNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns electrode pairs.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>numNodes: int </dt><dd><p>Number of nodes that you wish to pair.</p>
+</dd>
+</dl>
+</dd>
+<dt>Outputs: </dt><dd><dl class="simple">
+<dt>nodePairsNodes: numpy array (numNodePairs, 2)</dt><dd><p>Each row of ints is a (j, k) index pair, with j starting at 0 
+and such that j&lt;k&lt;numNodes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">compNodePairsNodes</span><span class="p">(</span><span class="n">numNodes</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="c1"># first pair of nodes</span>
+<span class="go">array([0, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="funsTG.phaseLockingValue">
+<span class="sig-prename descclassname"><span class="pre">funsTG.</span></span><span class="sig-name descname"><span class="pre">phaseLockingValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodePairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#funsTG.phaseLockingValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the Phase Locking Value for observations from pairs of random variables.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>X<span class="classifier">numpy array (Num nodes, Num trials (repeated observations) ).</span></dt><dd><p>Angle vector of repeated observations</p>
+</dd>
+<dt>nodePairs<span class="classifier">dictionary with one key ‘nodes’</span></dt><dd><p>nodePairs[‘nodes’] is a numpy array (numNodePairs, 2)
+Each row of ints is a (j, k) index pair, with j starting at 0 
+and such that j&lt;k&lt;numNodes. See <a class="reference internal" href="#funsTG.compNodePairsNodes" title="funsTG.compNodePairsNodes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">funsTG.compNodePairsNodes()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt>Outputs: </dt><dd><dl class="simple">
+<dt>plv: numpy array with numNodePairs elements</dt><dd><p>When X is more than 2 rows, each entry corresponds to the given pairs in nodePairs</p>
+</dd>
+<dt>plvPvals: numpy array with numNodePairs elements</dt><dd><p>Corresponding p-values obtained using a Rayleigh test.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numSamp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'trials'</span><span class="p">:</span> <span class="mi">1000</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nodePairs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kap</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newPhi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span> <span class="n">kap</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span> <span class="n">kap</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xsampled</span> <span class="o">=</span> <span class="n">sampleTG</span><span class="p">(</span><span class="n">numSamp</span><span class="p">,</span> <span class="n">newPhi</span><span class="p">,</span> <span class="n">nodePairs</span><span class="p">,</span> <span class="n">selMode</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plv</span><span class="p">,</span> <span class="n">pVal</span> <span class="o">=</span> <span class="n">phaseLockingValue</span><span class="p">(</span><span class="n">Xsampled</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">plv</span> <span class="o">-</span> <span class="n">besseli</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">kap</span><span class="p">)</span><span class="o">/</span> <span class="n">besseli</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">kap</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-2</span><span class="p">)</span>  <span class="c1"># close to besseli(1, kap)/ besseli(0, kap)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="n">pVal</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">numSamp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'trials'</span><span class="p">:</span> <span class="mi">1000</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nodePairs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newPhi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span> <span class="n">kap</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span> <span class="n">kap</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xsampled</span> <span class="o">=</span> <span class="n">sampleTG</span><span class="p">(</span><span class="n">numSamp</span><span class="p">,</span> <span class="n">newPhi</span><span class="p">,</span> <span class="n">nodePairs</span><span class="p">,</span> <span class="n">selMode</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plv</span><span class="p">,</span> <span class="n">pVal</span> <span class="o">=</span> <span class="n">phaseLockingValue</span><span class="p">(</span><span class="n">Xsampled</span><span class="p">,</span> <span class="n">nodePairs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pVal</span> <span class="o">&lt;</span> <span class="mf">0.01</span> <span class="c1"># PLV p-values cannot distinguish conditional independence on edge (0,2)</span>
+<span class="go">array([ True,  True,  True])</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="funsTG.wrapRadAngleToPi">
+<span class="sig-prename descclassname"><span class="pre">funsTG.</span></span><span class="sig-name descname"><span class="pre">wrapRadAngleToPi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radAngle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#funsTG.wrapRadAngleToPi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert radians to [-pi, pi] range.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>radAngle<span class="classifier">array_like</span></dt><dd><p>Angle, in radians (<span class="math notranslate nohighlight">\(2 \pi\)</span> rad equals 360 degrees).</p>
+</dd>
+</dl>
+</dd>
+<dt>Outputs:</dt><dd><p>numpy array of angles in [-pi, pi] range.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">wrapRadAngleToPi</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-12</span> 
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">wrapRadAngleToPi</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span> <span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span> <span class="p">)</span> 
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="funsTG.phiParamGroupsToMats">
+<span class="sig-prename descclassname"><span class="pre">funsTG.</span></span><span class="sig-name descname"><span class="pre">phiParamGroupsToMats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paramG</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodePairs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#funsTG.phiParamGroupsToMats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the <cite>paramG</cite> parameter groups to matrices.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>num and nodePairs are described in <a class="reference internal" href="index.html#funsTG.torusGraphs" title="funsTG.torusGraphs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">funsTG.torusGraphs()</span></code></a>,
+paramG is the output of <a class="reference internal" href="#funsTG.phiToParamGroups" title="funsTG.phiToParamGroups"><code class="xref py py-meth docutils literal notranslate"><span class="pre">funsTG.phiToParamGroups()</span></code></a></p>
+</dd>
+<dt>Outputs: </dt><dd><dl class="simple">
+<dt>matParamG<span class="classifier">dictionary.</span></dt><dd><p>The keys are [‘cosMu’, ‘sinMu’, ‘cosMuDif’, ‘sinMuDif’, ‘cosMuSum’, ‘sinMuSum’].
+These are identical to paramG, except that the pairwise components 
+(‘cosMuDif’, ‘sinMuDif’, ‘cosMuSum’, ‘sinMuSum’)
+are in matrix form, numpy (num[‘nodes’], num[‘nodes’]).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'nodePairs'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'param'</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nodePairs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selMode</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="s1">'param'</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paramG</span> <span class="o">=</span> <span class="n">phiToParamGroups</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">selMode</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matParamG</span> <span class="o">=</span> <span class="n">phiParamGroupsToMats</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">paramG</span><span class="p">,</span> <span class="n">nodePairs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">matParamG</span><span class="p">[</span><span class="s1">'cosMuDif'</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="funsTG.phiToParamGroups">
+<span class="sig-prename descclassname"><span class="pre">funsTG.</span></span><span class="sig-name descname"><span class="pre">phiToParamGroups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(True,</span> <span class="pre">True,</span> <span class="pre">True)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#funsTG.phiToParamGroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Categorizes the groups of parameters in phi.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>described in <a class="reference internal" href="index.html#funsTG.torusGraphs" title="funsTG.torusGraphs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">funsTG.torusGraphs()</span></code></a>.</p>
+</dd>
+<dt>Outputs: </dt><dd><dl class="simple">
+<dt>paramG<span class="classifier">dictionary.</span></dt><dd><p>The keys are [‘cosMu’, ‘sinMu’, ‘cosMuDif’, ‘sinMuDif’, ‘cosMuSum’, ‘sinMuSum’].
+The corresponding fields are numpy arrays, which can be filled with zeros 
+depending on selMode.</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><p>ValueError: when len(phi) doesn’t agree with selMode</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">num</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'nodes'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'nodePairs'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">'param'</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">selMode</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="s1">'param'</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paramG</span> <span class="o">=</span> <span class="n">phiToParamGroups</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">selMode</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">paramG</span><span class="p">[</span><span class="s1">'cosMu'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">paramG</span><span class="p">[</span><span class="s1">'sinMu'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">paramG</span><span class="p">[</span><span class="s1">'cosMuDif'</span><span class="p">])</span> <span class="o">==</span> <span class="n">num</span><span class="p">[</span><span class="s1">'nodePairs'</span><span class="p">]</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">paramG</span><span class="p">[</span><span class="s1">'cosMuDif'</span><span class="p">],</span> <span class="n">paramG</span><span class="p">[</span><span class="s1">'sinMuDif'</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">phi</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">paramG</span><span class="p">[</span><span class="s1">'cosMuSum'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">paramG</span><span class="p">[</span><span class="s1">'sinMuSum'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paramG</span> <span class="o">=</span> <span class="n">phiToParamGroups</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">selMode</span><span class="o">=</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">))</span>
+<span class="gt">Traceback (most recent call last):</span>
+    <span class="o">...</span>
+<span class="gr">ValueError</span>: <span class="n">The number of parameters in phi doesn't agree with the provided selMode, which expects 32 parameters.</span>
+</pre></div>
+</div>
+</dd></dl>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="results.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Results</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Josue Orellana |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>. |
+            <a class="muted-link" href="_sources/utilities.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/main.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
