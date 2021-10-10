@@ -4,8 +4,10 @@ Torus Graphs Python documentation
 .. toctree::
    :hidden:
 
-   results
+   startHere.ipynb
    utilities
+   results
+   
 
 .. automodule:: funsTG
    :members: torusGraphs
