@@ -422,11 +422,16 @@ def compPhiHatAndCovPhiHat(X, num, selMode, nodePairs):
 
     # gammaHatX: average of gammaXt over trials
     gammaHatX = np.zeros((num['param'],num['param']))
-    gammaXt_trials = np.zeros((num['trials'],num['param'],num['param']))
+    cache_gammaXt = True
+    try:
+        gammaXt_trials = np.zeros((num['trials'],num['param'],num['param']))
+    except MemoryError:
+        cache_gammaXt = False
     for t in range(num['trials']):
         gammaXt = compGammaXt(t, num, selMode, nodePairs,
                             sC, sS, sAlpha, sBeta, sGamma, sDelta)
-        gammaXt_trials[t, :, :] = gammaXt
+        if cache_gammaXt:
+            gammaXt_trials[t, :, :] = gammaXt
         gammaHatX += gammaXt
     gammaHatX /= num['trials']   
 
@@ -438,7 +443,12 @@ def compPhiHatAndCovPhiHat(X, num, selMode, nodePairs):
     # Estimating the covariance of phiHat: covPhiHat
     vHatX = np.zeros((num['param'],num['param']))
     for t in range(num['trials']):
-        vVec = (gammaXt_trials[t, :, :] @ phiHat) - H[:,t]
+        if cache_gammaXt:
+            vVec = (gammaXt_trials[t, :, :] @ phiHat) - H[:,t]
+        else:
+            gammaXt = compGammaXt(t, num, selMode, nodePairs,
+                            sC, sS, sAlpha, sBeta, sGamma, sDelta)
+            vVec = (gammaXt @ phiHat) - H[:,t]
         vVec = np.reshape(vVec,(-1,1))
         vHatX += vVec @ vVec.T
     vHatX /= num['trials']  
