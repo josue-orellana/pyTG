@@ -416,9 +416,10 @@ def compPhiHatAndCovPhiHat(X, num, selMode, nodePairs):
     # Sufficient Statistics
     H, sC, sS, sAlpha, sBeta, sGamma, sDelta = \
         compSufStat(X, selMode, nodePairs)
+    Ht = H.T
 
     # define compPhiHatAndCovPhiHat
-    HhatX = np.mean(H,1)
+    HhatX = np.mean(H,1) # H is (n_params, n_trials)
 
     # gammaHatX: average of gammaXt over trials
     gammaHatX = np.zeros((num['param'],num['param']))
@@ -444,13 +445,16 @@ def compPhiHatAndCovPhiHat(X, num, selMode, nodePairs):
     vHatX = np.zeros((num['param'],num['param']))
     for t in range(num['trials']):
         if cache_gammaXt:
-            vVec = (gammaXt_trials[t, :, :] @ phiHat) - H[:,t]
+            #vVec = (gammaXt_trials[t, :, :] @ phiHat) - H[:,t]
+            vVec = np.dot(gammaXt_trials[t, :, :], phiHat) - Ht[t, :]
         else:
             gammaXt = compGammaXt(t, num, selMode, nodePairs,
                             sC, sS, sAlpha, sBeta, sGamma, sDelta)
-            vVec = (gammaXt @ phiHat) - H[:,t]
-        vVec = np.reshape(vVec,(-1,1))
-        vHatX += vVec @ vVec.T
+            #vVec = (gammaXt @ phiHat) - H[:,t]
+            vVec = np.dot(gammaXt, phiHat) - Ht[t, :]
+        #vVec = np.reshape(vVec,(-1,1))
+        #vHatX += vVec @ vVec.T
+        vHatX += np.outer(vVec, vVec)
     vHatX /= num['trials']  
     #invGammaHatX = np.linalg.inv(gammaHatX) # older version, less stable?
     #covPhiHat = (invGammaHatX @ vHatX @ invGammaHatX)/num['trials']
