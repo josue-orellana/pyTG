@@ -429,7 +429,7 @@ def compPhiHatAndCovPhiHat(X, num, selMode, nodePairs):
     gammaHatX /= num['trials']   
 
     # Estimating phiHat
-    L = scipy.linalg.cholesky(gammaHatX, lower=True)
+    L = scipy.linalg.cholesky(gammaHatX + 1e-8 * np.eye(gammaHatX.shape[0]), lower=True)
     phiHat = scipy.linalg.cho_solve((L, True), HhatX)
     #phiHat = np.linalg.inv(gammaHatX) @ HhatX # older version, less stable?
 
