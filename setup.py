@@ -109,7 +109,7 @@ setup(
     # the `py_modules` argument instead as follows, which will expect a file
     # called `my_module.py` to exist:
     #
-    py_modules=["funsTG"],
+    py_modules=["pyTG"],
     #
     packages=find_packages(where=''),  # Required
 
