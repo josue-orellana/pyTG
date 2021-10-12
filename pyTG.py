@@ -35,6 +35,7 @@ from numpy import pi
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import scipy.linalg
 from scipy.stats import chi2
 from scipy.special import iv as besseli
 import networkx as nx
@@ -428,7 +429,9 @@ def compPhiHatAndCovPhiHat(X, num, selMode, nodePairs):
     gammaHatX /= num['trials']   
 
     # Estimating phiHat
-    phiHat = np.linalg.inv(gammaHatX) @ HhatX
+    L = scipy.linalg.cholesky(gammaHatX, lower=True)
+    phiHat = scipy.linalg.cho_solve((L, True), HhatX)
+    #phiHat = np.linalg.inv(gammaHatX) @ HhatX # older version, less stable?
 
     # Estimating the covariance of phiHat: covPhiHat
     vHatX = np.zeros((num['param'],num['param']))
@@ -439,8 +442,10 @@ def compPhiHatAndCovPhiHat(X, num, selMode, nodePairs):
         vVec = np.reshape(vVec,(-1,1))
         vHatX += vVec @ vVec.T
     vHatX /= num['trials']  
-    invGammaHatX = np.linalg.inv(gammaHatX)
-    covPhiHat = (invGammaHatX @ vHatX @ invGammaHatX)/num['trials']
+    #invGammaHatX = np.linalg.inv(gammaHatX) # older version, less stable?
+    #covPhiHat = (invGammaHatX @ vHatX @ invGammaHatX)/num['trials']
+    Linv = np.linalg.inv(L)
+    covPhiHat = 1/num['trials'] * scipy.linalg.cho_solve((L, True), vHatX) @ Linv.T @ Linv
 
     return (phiHat, covPhiHat)
 
